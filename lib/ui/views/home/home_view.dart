@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lbtaskapp/ui/common/all_string.dart';
+import 'package:lbtaskapp/ui/widget/mobilenumber_input.dart';
 import 'package:stacked/stacked.dart';
 import 'package:lbtaskapp/ui/common/app_colors.dart';
 import 'package:lbtaskapp/ui/common/ui_helpers.dart';
@@ -14,63 +16,77 @@ class HomeView extends StackedView<HomeViewModel> {
     HomeViewModel viewModel,
     Widget? child,
   ) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                verticalSpaceLarge,
-                Column(
-                  children: [
-                    const Text(
-                      'Hello, STACKED!',
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.w900,
-                      ),
+    // MediaQuery data
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            children: [
+              SizedBox(
+                height: height * 0.2,
+              ),
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: width * 0.05,
+                    right: width * 0.05,
+                  ),
+                  child: Container(
+                    height: height * 0.24,
+                    width: width * 0.9,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: const Color.fromARGB(31, 85, 84, 84),
                     ),
-                    verticalSpaceMedium,
-                    MaterialButton(
-                      color: Colors.black,
-                      onPressed: viewModel.incrementCounter,
-                      child: Text(
-                        viewModel.counterLabel,
-                        style: const TextStyle(color: Colors.white),
-                      ),
+                    child: Column(
+                      children: [
+                        const Align(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: 10,
+                              top: 15,
+                              bottom: 10
+                            ),
+                            child: Text(
+                              "Mobile Number",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: Color.fromARGB(255, 116, 116, 112),
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ),
+                        ),
+    
+                        MobileNumberInput(),
+    
+                        Container(
+                          child: const Padding(
+                            padding: EdgeInsets.only(
+                              left: 10,
+                              right: 10,
+                              top: 20,
+                              // bottom: 20,
+                            ),
+                            child: Text(
+                              AllString.string1,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Color.fromARGB(255, 90, 90, 88)
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MaterialButton(
-                      color: kcDarkGreyColor,
-                      onPressed: viewModel.showDialog,
-                      child: const Text(
-                        'Show Dialog',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    MaterialButton(
-                      color: kcDarkGreyColor,
-                      onPressed: viewModel.showBottomSheet,
-                      child: const Text(
-                        'Show Bottom Sheet',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),

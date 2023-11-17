@@ -11,15 +11,19 @@ import 'package:lbtaskapp/ui/views/home/home_view.dart' as _i2;
 import 'package:lbtaskapp/ui/views/startup/startup_view.dart' as _i3;
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i5;
+// import 'package:lbtaskapp/ui';
 
 class Routes {
   static const homeView = '/home-view';
 
   static const startupView = '/startup-view';
 
+  // static const countercodeView = '/countrycode';
+
   static const all = <String>{
     homeView,
     startupView,
+    // countercodeView,
   };
 }
 
@@ -29,10 +33,15 @@ class StackedRouter extends _i1.RouterBase {
       Routes.homeView,
       page: _i2.HomeView,
     ),
+    
     _i1.RouteDef(
       Routes.startupView,
       page: _i3.StartupView,
     ),
+    // _i1.RouteDef(
+    //   Routes.countercodeView,
+    //   page: _i3.HomeView,
+    // ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
