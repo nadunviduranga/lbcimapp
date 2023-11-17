@@ -23,7 +23,7 @@ class HomeView extends StackedView<HomeViewModel> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(5),
           child: Column(
             children: [
               SizedBox(
