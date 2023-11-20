@@ -268,8 +268,10 @@ class _MobileNumberInputState extends State<MobileNumberInput> {
   @override
   Widget build(BuildContext context) {
 
+    // ignore: non_constant_identifier_names
     double Countrycodelenth = selectedCountryCode.length.toDouble();
     debugPrint(Countrycodelenth.toString());
+    
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -294,7 +296,7 @@ class _MobileNumberInputState extends State<MobileNumberInput> {
                     // color: Colors.amber,
 
                     border: Border.all(
-                        color: Color.fromARGB(255, 133, 131, 131), width: 1),
+                        color: const Color.fromARGB(255, 133, 131, 131), width: 1),
                   ),
                   child: Row(
                     children: [
@@ -304,7 +306,7 @@ class _MobileNumberInputState extends State<MobileNumberInput> {
                           right: Countrycodelenth == 5 ? 1 : Countrycodelenth > 2 && Countrycodelenth <= 5 ? 13 : Countrycodelenth == 2 ? 21 : 10 ,
                           
                           ),
-                        child: Text("+" + selectedCountryCode),
+                        child: Text("+$selectedCountryCode"),
                       ),
                       GestureDetector(
                         child: IconButton(
@@ -367,6 +369,8 @@ class _MobileNumberInputState extends State<MobileNumberInput> {
   }
 }
 
+//! Counrty dialog box widget ---
+
 class CountryDialog extends StatefulWidget {
   final List<Map<String, String>> allCountryCodes;
   final String selectedCountryCode;
@@ -417,7 +421,7 @@ class _CountryDialogState extends State<CountryDialog> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Container(
+        child: SizedBox(
           height: 350,
           child: Column(
             children: [
