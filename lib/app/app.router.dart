@@ -18,12 +18,12 @@ class Routes {
 
   static const startupView = '/startup-view';
 
-  // static const countercodeView = '/countrycode';
+  static const countercodeView = '/countrycode';
 
   static const all = <String>{
     homeView,
     startupView,
-    // countercodeView,
+    countercodeView,
   };
 }
 
