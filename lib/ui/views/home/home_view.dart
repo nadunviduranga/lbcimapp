@@ -199,10 +199,6 @@ class _HomeViewState extends State<HomeView> {
                               bottomRight: Radius.circular(10),
                               topRight: Radius.circular(10),
                             ),
-        // border: Border.all(
-        //   color: Colors.black,
-        //   width: 1,
-        // )
                           ),
                           child: TextField(
 
